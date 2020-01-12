@@ -7,6 +7,7 @@ public class Coordinates {
         System.out.println(sumMatrix(matrix));
         printMatrixDiagonal(matrix);
         printCellCoordinate(matrix);
+        System.out.println(findElementSum(matrix, 2, 5)); //решение задачи
     }
 
     public static int[][] createMatrix(int matrixLength) {
@@ -56,6 +57,36 @@ public class Coordinates {
             }
             coordinate += 1;
         }
+    }
+
+    public static int findElementSum(int[][] matrix, int coordinateOne, int coordinateTwo) {
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if (i == coordinateOne - 1 && i >= 0) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    if (j == coordinateTwo) {
+                        sum += matrix[i][j];
+                    }
+                }
+            }
+
+            if (i == coordinateOne + 1 && i <= matrix.length) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    sum += matrix[i][j];
+                }
+            }
+
+            if (i == coordinateOne) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    if (j == coordinateTwo - 1 && j >= 0)
+                        sum += matrix[i][j];
+                    if (j == coordinateTwo + 1 && j <= matrix[i].length) {
+                        sum += matrix[i][j];
+                    }
+                }
+            }
+        }
+        return sum;
     }
 }
 
