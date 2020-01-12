@@ -1,5 +1,6 @@
 package Coordinates;
 
+//TODO Посчитать сумму смежных координат: [i-1][j], [i+1][j], [i][j-1], [i][j+1].
 public class Coordinates {
     public static void main(String[] args) {
         int[][] matrix = createMatrix(10);
@@ -57,6 +58,8 @@ public class Coordinates {
         }
     }
 }
+
+
 
 
 
